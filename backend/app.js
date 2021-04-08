@@ -17,6 +17,7 @@ const users = require('./routes/Users');
 const usersEvent = require('./routes/UsersEvents');
 const strava = require('./routes/Strava');
 const eventActivity = require('./routes/EventActivity');
+const checkOut = require('./routes/Checkout')
 
 
 mongoose.connect('mongodb+srv://manikandan:WpHQi4JPJUSc3EVb@cluster0.en3xl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
@@ -53,5 +54,6 @@ app.use('/api/users', users);
 app.use('/api/usersEvent', usersEvent);
 app.use('/api/strava', strava);
 app.use('/api/eventActivity', eventActivity);
+app.use('/api/checkout',checkOut);
 
 module.exports = app;

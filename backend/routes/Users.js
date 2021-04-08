@@ -45,7 +45,7 @@ router.post('', async (req, res, next) => {
                         refresh_token: response.data.refresh_token,
                         profile_image: response.data.athlete.profile_medium,
                         strava_id: response.data.athlete.id,
-                        mail_id: '',
+                        mail_id: 'harivignesh261998@gmail.com',
                         phone_number: '',
                         dob: '',
                     });

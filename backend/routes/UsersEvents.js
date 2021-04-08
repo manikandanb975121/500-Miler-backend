@@ -97,7 +97,7 @@ router.get('/:id', checkAuth, async (req, res, next) => {
                 .json({
                     message: `${ events.event_name } fetched Successfullys`,
                     result: userEvent,
-                    stravaIds: stravaId
+                    //stravaIds: stravaId
                 });
         });
 });
