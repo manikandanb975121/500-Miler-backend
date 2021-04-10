@@ -24,7 +24,7 @@ router.post('',checkAuth,(req,res,next)=>{
 });
 
 router.post('/verification',(req,res)=>{
-  const secret = '12345678'
+  const secret = '123456789'
 	console.log(req.body)
 	const shasum = crypto.createHmac('sha256', secret)
 	shasum.update(JSON.stringify(req.body))
@@ -33,7 +33,8 @@ router.post('/verification',(req,res)=>{
 	console.log(digest, req.headers['x-razorpay-signature'])
 
 	if (digest === req.headers['x-razorpay-signature']) {
-    // here send the payment details to the data base
+    // here send the payment details to the database
+    console.log('Success');
     res.json({ status: 'ok' })
 	}
 

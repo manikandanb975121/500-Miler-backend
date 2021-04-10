@@ -3,16 +3,16 @@ const debug = require("debug")("node-angular");
 const http = require("http");
 
 const normalizePort = val => {
-  var port = parseInt(val, 10);
+  var PORT = parseInt(val, 10);
 
-  if (isNaN(port)) {
+  if (isNaN(PORT)) {
     // named pipe
     return val;
   }
 
-  if (port >= 0) {
+  if (PORT >= 0) {
     // port number
-    return port;
+    return PORT;
   }
 
   return false;
@@ -22,7 +22,7 @@ const onError = error => {
   if (error.syscall !== "listen") {
     throw error;
   }
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  const bind = typeof PORT === "string" ? "pipe " + PORT : "port " + PORT;
   switch (error.code) {
     case "EACCES":
       console.error(bind + " requires elevated privileges");
@@ -39,14 +39,14 @@ const onError = error => {
 
 const onListening = () => {
   const addr = server.address();
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  const bind = typeof PORT === "string" ? "pipe " + PORT : "port " + PORT;
   debug("Listening on " + bind);
 };
 
-const port = normalizePort(process.env.PORT || "5000");
-app.set("port", port);
+const PORT = normalizePort(process.env.PORT || 5000);
+app.set("port", PORT);
 
 const server = http.createServer(app);
 server.on("error", onError);
 server.on("listening", onListening);
-server.listen(port);
+server.listen(PORT);
